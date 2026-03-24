@@ -6,79 +6,115 @@
 <title>Loja Express</title>
 
 <style>
-body {
+* {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f1f5f9;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: #fff;
+}
+
+/* HEADER */
 header {
-    background: linear-gradient(90deg, #0f172a, #1e293b);
-    color: white;
-    padding: 20px;
+    background: linear-gradient(90deg, #020617, #1e293b);
+    padding: 25px;
     text-align: center;
+    border-bottom: 2px solid #16a34a;
 }
 
 header h1 {
-    margin: 0;
+    font-size: 26px;
 }
 
-.container {
+header p {
+    color: #94a3b8;
+}
+
+/* CATEGORIA */
+.categoria {
     padding: 20px;
+}
+
+.categoria h2 {
+    margin-bottom: 15px;
+    color: #22c55e;
+}
+
+/* GRID */
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 15px;
 }
 
+/* CARD */
 .card {
-    background: white;
+    background: #1e293b;
     border-radius: 15px;
     padding: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: 0.2s;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
 .card:hover {
-    transform: scale(1.03);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
+/* TITULO */
 .card h3 {
-    margin-top: 0;
+    font-size: 16px;
 }
 
+/* PREÇO */
 .price {
-    color: #16a34a;
+    margin-top: 8px;
+    color: #4ade80;
     font-weight: bold;
     font-size: 18px;
 }
 
+/* BOTÃO */
 .btn {
     display: block;
-    margin-top: 10px;
+    margin-top: 12px;
     padding: 10px;
     text-align: center;
     background: #16a34a;
     color: white;
     text-decoration: none;
     border-radius: 8px;
+    font-size: 14px;
+    transition: 0.2s;
 }
 
 .btn:hover {
     background: #15803d;
 }
 
-/* Botão flutuante */
-.whatsapp-fixo {
+/* WHATSAPP FIXO */
+.whatsapp {
     position: fixed;
     bottom: 20px;
     right: 20px;
     background: #25D366;
-    color: white;
     padding: 15px;
     border-radius: 50%;
+    font-size: 22px;
+    color: white;
     text-decoration: none;
-    font-size: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+/* RESPONSIVO */
+@media(max-width:500px){
+    header h1 {
+        font-size: 20px;
+    }
 }
 </style>
 
@@ -88,10 +124,13 @@ header h1 {
 
 <header>
     <h1>🛒 Loja Express</h1>
-    <p>Peça rápido pelo WhatsApp</p>
+    <p>Peça direto pelo WhatsApp</p>
 </header>
 
-<div class="container">
+<!-- BATERIAS -->
+<div class="categoria">
+<h2>🔋 Baterias e Pilhas</h2>
+<div class="grid">
 
 <div class="card">
 <h3>Bateria 2032</h3>
@@ -112,9 +151,29 @@ header h1 {
 </div>
 
 <div class="card">
+<h3>Pilha Pequena</h3>
+<p class="price">R$ 10,00</p>
+<a class="btn" href="https://wa.me/5521980207409?text=Quero%20comprar%20Pilha%20Pequena">Comprar</a>
+</div>
+
+</div>
+</div>
+
+<!-- ACESSÓRIOS -->
+<div class="categoria">
+<h2>🔌 Acessórios</h2>
+<div class="grid">
+
+<div class="card">
 <h3>Carregador Turbo</h3>
 <p class="price">R$ 40,00</p>
 <a class="btn" href="https://wa.me/5521980207409?text=Quero%20comprar%20Carregador%20Turbo">Comprar</a>
+</div>
+
+<div class="card">
+<h3>Fonte Tipo C + USB</h3>
+<p class="price">R$ 25,00</p>
+<a class="btn" href="https://wa.me/5521980207409?text=Quero%20comprar%20Fonte">Comprar</a>
 </div>
 
 <div class="card">
@@ -124,9 +183,9 @@ header h1 {
 </div>
 
 <div class="card">
-<h3>Mouse Sem Fio Recarregável</h3>
-<p class="price">R$ 30,00</p>
-<a class="btn" href="https://wa.me/5521980207409?text=Quero%20comprar%20Mouse">Comprar</a>
+<h3>Carregador Veicular</h3>
+<p class="price">R$ 40,00</p>
+<a class="btn" href="https://wa.me/5521980207409?text=Quero%20comprar%20Carregador%20Veicular">Comprar</a>
 </div>
 
 <div class="card">
@@ -135,15 +194,36 @@ header h1 {
 <a class="btn" href="https://wa.me/5521980207409?text=Quero%20comprar%20Suporte">Comprar</a>
 </div>
 
+</div>
+</div>
+
+<!-- OUTROS -->
+<div class="categoria">
+<h2>🧾 Outros Produtos</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Mouse Sem Fio Recarregável</h3>
+<p class="price">R$ 30,00</p>
+<a class="btn" href="https://wa.me/5521980207409?text=Quero%20comprar%20Mouse">Comprar</a>
+</div>
+
 <div class="card">
 <h3>Termômetro</h3>
 <p class="price">R$ 15,00</p>
 <a class="btn" href="https://wa.me/5521980207409?text=Quero%20comprar%20Termometro">Comprar</a>
 </div>
 
+<div class="card">
+<h3>Itens Diversos</h3>
+<p class="price">A partir de R$ 1,00</p>
+<a class="btn" href="https://wa.me/5521980207409?text=Quero%20ver%20todos%20os%20itens">Ver mais</a>
 </div>
 
-<a class="whatsapp-fixo" href="https://wa.me/5521980207409">💬</a>
+</div>
+</div>
+
+<a class="whatsapp" href="https://wa.me/5521980207409">💬</a>
 
 </body>
 </html>
