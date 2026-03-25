@@ -42,7 +42,7 @@ header p {
 /* CONTAINER */
 .container {
     padding: 20px;
-    padding-bottom: 180px; /* espaço pro carrinho não cobrir */
+    padding-bottom: 180px;
 }
 
 /* CARD */
@@ -145,6 +145,16 @@ footer {
     border-radius: 8px;
     font-size: 16px;
 }
+
+/* 🔥 NOVO: ESTILO DAS PROTEÍNAS */
+.proteina-item h3 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.proteina-item .price {
+    font-size: 16px;
+}
 </style>
 
 </head>
@@ -222,7 +232,6 @@ footer {
 <a class="btn" onclick="addItem('Queijo Coalho', 7)">Adicionar</a>
 </div>
 
-<!-- PROTEÍNA EXPANSÍVEL -->
 <div class="card">
 <h2 onclick="toggleProteinas()" style="cursor:pointer;">
 ➕ Proteína Extra ▼
@@ -230,19 +239,19 @@ footer {
 
 <div id="proteinas" style="display:none; margin-top:10px;">
 
-<div class="card">
+<div class="card proteina-item">
 <h3>Parmegiana</h3>
 <p class="price">R$ 9,00</p>
 <a class="btn" onclick="addItem('Parmegiana', 9)">Adicionar</a>
 </div>
 
-<div class="card">
+<div class="card proteina-item">
 <h3>Linguiça Mineira</h3>
 <p class="price">R$ 9,00</p>
 <a class="btn" onclick="addItem('Linguiça Mineira', 9)">Adicionar</a>
 </div>
 
-<div class="card">
+<div class="card proteina-item">
 <h3>Churrasco Misto</h3>
 <p class="price">R$ 12,00</p>
 <a class="btn" onclick="addItem('Churrasco Misto', 12)">Adicionar</a>
