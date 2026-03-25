@@ -155,7 +155,6 @@ footer {
     <p>Sabor nordestino direto na sua casa</p>
 </header>
 
-<!-- FAIXA ADICIONADA -->
 <div class="info">
 💳 Pagamento: Crédito, Débito, PIX e Alelo <br>
 🚚 Consultar taxa de entrega <br>
@@ -175,20 +174,20 @@ footer {
 <div class="card">
 <h2>Baião com Parmegiana</h2>
 <p class="price">R$ 27,00</p>
-<p class="desc">Baião + farofa + parmegiana</p>
+<p class="desc"> Meio kg de Baião + farofa + parmegiana</p>
 <a class="btn" onclick="addItem('Baião com Parmegiana', 27)">Adicionar</a>
 </div>
 
 <div class="card">
-<h2>Baião com Linguiça Mineira</h2>
+<h2> Meio kg de Baião com Linguiça Mineira</h2>
 <p class="price">R$ 28,90</p>
 <p class="desc">Baião + farofa + linguiça</p>
 <a class="btn" onclick="addItem('Baião com Linguiça', 28.9)">Adicionar</a>
 </div>
 
 <div class="card">
-<h2>Baião com Churrasco Misto</h2>
-<p class="price">R$ 30,00</p>
+<h2> Meio kg de Baião com Churrasco Misto</h2>
+<p class="price">R$ 32,00</p>
 <p class="desc">Baião + farofa + churrasco</p>
 <a class="btn" onclick="addItem('Baião com Churrasco', 30)">Adicionar</a>
 </div>
@@ -222,10 +221,33 @@ footer {
 <a class="btn" onclick="addItem('Queijo Coalho', 7)">Adicionar</a>
 </div>
 
+<!-- PROTEÍNA EXPANSÍVEL -->
 <div class="card">
-<h2>Proteína Extra</h2>
+<h2 onclick="toggleProteinas()" style="cursor:pointer;">
+➕ Proteína Extra ▼
+</h2>
+
+<div id="proteinas" style="display:none; margin-top:10px;">
+
+<div class="card">
+<h3>Parmegiana</h3>
 <p class="price">R$ 9,00</p>
-<a class="btn" onclick="addItem('Proteína Extra', 9)">Adicionar</a>
+<a class="btn" onclick="addItem('Parmegiana', 9)">Adicionar</a>
+</div>
+
+<div class="card">
+<h3>Linguiça Mineira</h3>
+<p class="price">R$ 9,00</p>
+<a class="btn" onclick="addItem('Linguiça Mineira', 9)">Adicionar</a>
+</div>
+
+<div class="card">
+<h3>Churrasco Misto</h3>
+<p class="price">R$ 12,00</p>
+<a class="btn" onclick="addItem('Churrasco Misto', 12)">Adicionar</a>
+</div>
+
+</div>
 </div>
 
 </div>
@@ -237,7 +259,6 @@ footer {
 
 <a class="whatsapp" href="https://wa.me/5521980762316">💬</a>
 
-<!-- CARRINHO -->
 <div class="cart">
 <h3>🛒 Seu pedido</h3>
 <div class="cart-items" id="cartItems"></div>
@@ -289,6 +310,16 @@ function sendWhats() {
     mensagem += `%0ATotal: R$ ${total.toFixed(2)}`;
 
     window.open(`https://wa.me/5521980762316?text=${mensagem}`);
+}
+
+function toggleProteinas() {
+    const div = document.getElementById("proteinas");
+
+    if (div.style.display === "none") {
+        div.style.display = "block";
+    } else {
+        div.style.display = "none";
+    }
 }
 </script>
 
