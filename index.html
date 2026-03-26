@@ -273,6 +273,20 @@ footer {
 <h3>🛒 Seu pedido</h3>
 <div class="cart-items" id="cartItems"></div>
 <p id="total"></p>
+
+<!-- 🔥 NOVO: FORMA DE PAGAMENTO -->
+<div style="margin-top:10px;">
+<label><strong>Forma de pagamento:</strong></label><br>
+<select id="payment" style="width:100%; padding:8px; border-radius:8px; margin-top:5px;">
+<option value="">Selecione</option>
+<option value="Pix">Pix</option>
+<option value="Cartão de Crédito">Cartão de Crédito</option>
+<option value="Cartão de Débito">Cartão de Débito</option>
+<option value="Dinheiro">Dinheiro</option>
+<option value="Alelo">Alelo</option>
+</select>
+</div>
+
 <button onclick="sendWhats()">Finalizar no WhatsApp</button>
 </div>
 
@@ -304,9 +318,17 @@ function renderCart() {
     document.getElementById("total").innerHTML = "<strong>Total: R$ " + total.toFixed(2) + "</strong>";
 }
 
+/* 🔥 ATUALIZADO */
 function sendWhats() {
     if(cart.length === 0) {
         alert("Carrinho vazio!");
+        return;
+    }
+
+    const pagamento = document.getElementById("payment").value;
+
+    if(pagamento === "") {
+        alert("Selecione a forma de pagamento!");
         return;
     }
 
@@ -317,7 +339,9 @@ function sendWhats() {
     });
 
     let total = cart.reduce((sum, item) => sum + item.preco * item.qtd, 0);
+
     mensagem += `%0ATotal: R$ ${total.toFixed(2)}`;
+    mensagem += `%0AForma de pagamento: ${pagamento}`;
 
     window.open(`https://wa.me/5521980762316?text=${mensagem}`);
 }
