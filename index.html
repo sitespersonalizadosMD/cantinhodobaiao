@@ -112,8 +112,9 @@ header p {
 footer {
     text-align: center;
     padding: 20px;
-    background: #c2410c; /* cor do botão */
+    background: #c2410c;
     color: white;
+    z-index: 1;
 }
 
 /* CARRINHO */
@@ -166,9 +167,7 @@ footer {
     border-top: 3px solid #c2410c;
     padding: 15px;
     box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
-
-    max-height: 200px; /* altura controlada */
-    overflow-y: auto;
+    z-index: 9999; /* 👈 ISSO RESOLVE */
 }
 </style>
 
