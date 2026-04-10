@@ -40,7 +40,7 @@ header p {
 /* CONTAINER */
 .container {
     padding: 20px;
-    padding-bottom: 160px; /* espaço exato pro carrinho */
+    padding-bottom: 220px; /* aumenta pra caber tudo */
 }
 
 /* CARD */
@@ -158,7 +158,16 @@ footer {
 }
   
     .cart {
-    max-height: 40vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff3d6;
+    border-top: 3px solid #c2410c;
+    padding: 15px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+
+    max-height: 200px; /* altura controlada */
     overflow-y: auto;
 }
 </style>
