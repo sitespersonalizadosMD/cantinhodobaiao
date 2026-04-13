@@ -323,6 +323,23 @@ footer {
 </select>
 </div>
 
+    div style="margin-top:10px;">
+<label><strong>Adicionar dependente:</strong></label><br>
+
+<select id="dependente" onchange="mostrarIdade()" style="width:100%; padding:8px; border-radius:8px; margin-top:5px;">
+<option value="">Selecione</option>
+<option value="Filho">Filho</option>
+<option value="Cônjuge">Cônjuge</option>
+<option value="Pai/Mãe">Pai/Mãe</option>
+</select>
+</div>
+
+<div id="idadeBox" style="display:none; margin-top:10px;">
+<label><strong>Idade do dependente:</strong></label>
+<input type="number" id="idadeDependente" placeholder="Digite a idade"
+style="width:100%; padding:8px; border-radius:8px; margin-top:5px;">
+</div>
+    
 <button onclick="sendWhats()">Finalizar no WhatsApp</button>
 </div>
 
@@ -383,6 +400,13 @@ function sendWhats() {
         mensagem += `- ${item.nome} x${item.qtd}%0A`;
     });
 
+    const dependente = document.getElementById("dependente").value;
+const idade = document.getElementById("idadeDependente").value;
+
+if (dependente !== "") {
+    mensagem += `%0A${dependente} - Idade: ${idade}`;
+}
+
     let total = cart.reduce((sum, item) => sum + item.preco * item.qtd, 0);
 
     mensagem += `%0ATotal: R$ ${total.toFixed(2)}`;
@@ -398,6 +422,16 @@ function toggleProteinas() {
         div.style.display = "block";
     } else {
         div.style.display = "none";
+    }
+}
+    function mostrarIdade() {
+    const dependente = document.getElementById("dependente").value;
+    const box = document.getElementById("idadeBox");
+
+    if (dependente !== "") {
+        box.style.display = "block";
+    } else {
+        box.style.display = "none";
     }
 }
 </script>
