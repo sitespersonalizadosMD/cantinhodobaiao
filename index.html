@@ -170,34 +170,6 @@ footer {
     box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
     z-index: 9999; /* 👈 ISSO RESOLVE */
 }
-
-    .cart-popup {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 320px;
-    background: #fff3d6;
-    border-top: 3px solid #c2410c;
-    padding: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    border-radius: 12px;
-
-    transform: translateY(120%);
-    opacity: 0;
-    transition: 0.3s ease;
-    z-index: 9999;
-}
-
-.cart-popup.show {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.cart-items {
-    max-height: 120px;
-    overflow-y: auto;
-    font-size: 14px;
-}
 </style>
 
 </head>
@@ -221,28 +193,28 @@ footer {
 <h2> Só Baião.</h2>
 <p class="price">R$ 23,90</p>
 <p class="desc">Baião de dois com linguiça, bacon, coentro, queijo coalho, farofa e manteiga de garrafa</p>
-<a class="btn" onclick="addItem('Só Baião', 23.9, this)">Adicionar</a>
+<a class="btn" onclick="addItem('Só Baião', 23.9)">Adicionar</a>
 </div>
 
 <div class="card">
 <h2> Baião com Parmegiana</h2>
 <p class="price">R$ 27,00</p>
 <p class="desc"> Baião de dois com linguiça, bacon, coentro, queijo coalho, farofa e manteiga de garrafa, acompanhado de frango à parmegiana.</p>
-<a class="btn" onclick="addItem('Baião com Parmegiana', 27, this)">Adicionar</a>
+<a class="btn" onclick="addItem('Baião com Parmegiana', 27)">Adicionar</a>
 </div>
 
 <div class="card">
 <h2> Baião com Linguiça Mineira</h2>
 <p class="price">R$ 28,90</p>
 <p class="desc"> Baião de dois com linguiça, bacon, coentro, queijo coalho, farofa e manteiga de garrafa, acompanhado de linguiça a mineira.</p>
-<a class="btn" onclick="addItem('Baião com Linguiça', 28.9, this)">Adicionar</a>
+<a class="btn" onclick="addItem('Baião com Linguiça', 28.9)">Adicionar</a>
 </div>
 
 <div class="card">
 <h2> Baião com Churrasco Misto</h2>
 <p class="price">R$ 32,00</p>
 <p class="desc"> Baião de dois com linguiça, bacon, coentro, queijo coalho, farofa e manteiga de garrafa, acompanhado de churrasco misto.</p>
-<a class="btn" onclick="addItem('Baião com Churrasco', 32, this)">Adicionar</a>
+<a class="btn" onclick="addItem('Baião com Churrasco', 32)">Adicionar</a>
 </div>
 
 <h2 class="section-title">🥤 Bebidas</h2>
@@ -251,7 +223,7 @@ footer {
 <h2>Refrigerante</h2>
 <p class="price">R$ 6,00</p>
 <p class="desc">Coca, Coca Zero ou Pepsi Black</p>
-<a class="btn" onclick="addItem('Refrigerante', 6, this)">Adicionar</a>
+<a class="btn" onclick="addItem('Refrigerante', 6)">Adicionar</a>
 </div>
 
 <h2 class="section-title">➕ Extras</h2>
@@ -259,19 +231,19 @@ footer {
 <div class="card">
 <h2>Farofa</h2>
 <p class="price">R$ 5,00</p>
-<a class="btn" onclick="addItem('Farofa', 5, this)">Adicionar</a>
+<a class="btn" onclick="addItem('Farofa', 5)">Adicionar</a>
 </div>
 
 <div class="card">
 <h2>Vinagrete</h2>
 <p class="price">R$ 6,00</p>
-<a class="btn" onclick="addItem('Vinagrete', 6, this)">Adicionar</a>
+<a class="btn" onclick="addItem('Vinagrete', 6)">Adicionar</a>
 </div>
 
 <div class="card">
 <h2>Queijo Coalho</h2>
 <p class="price">R$ 7,00</p>
-<a class="btn" onclick="addItem('Queijo Coalho', 7, this)">Adicionar</a>
+<a class="btn" onclick="addItem('Queijo Coalho', 7)">Adicionar</a>
 </div>
 
 <div class="card">
@@ -284,19 +256,19 @@ footer {
 <div class="card proteina-item">
 <h3>Parmegiana</h3>
 <p class="price">R$ 9,00</p>
-<a class="btn" onclick="addItem('Parmegiana', 9, this)">Adicionar</a>
+<a class="btn" onclick="addItem('Parmegiana', 9)">Adicionar</a>
 </div>
 
 <div class="card proteina-item">
 <h3>Linguiça Mineira</h3>
 <p class="price">R$ 9,00</p>
-<a class="btn" onclick="addItem('Linguiça Mineira', 9, this)">Adicionar</a>
+<a class="btn" onclick="addItem('Linguiça Mineira', 9)">Adicionar</a>
 </div>
 
 <div class="card proteina-item">
 <h3>Churrasco Misto</h3>
 <p class="price">R$ 12,00</p>
-<a class="btn" onclick="addItem('Churrasco Misto', 12, this)">Adicionar</a>
+<a class="btn" onclick="addItem('Churrasco Misto', 12)">Adicionar</a>
 </div>
 
 </div>
@@ -318,7 +290,7 @@ footer {
 
 <a class="whatsapp" href="https://wa.me/5521980762316">💬</a>
 
-<div class="cart-popup" id="cart">
+<div class="cart">
 <h3>🛒 Seu pedido</h3>
 <div class="cart-items" id="cartItems"></div>
 <p id="total"></p>
@@ -341,7 +313,7 @@ footer {
 <script>
 let cart = [];
 
-function addItem(nome, preco, el) {
+function addItem(nome, preco) {
     const item = cart.find(i => i.nome === nome);
 
     if(item) {
@@ -351,20 +323,6 @@ function addItem(nome, preco, el) {
     }
 
     renderCart();
-
-    // mostra carrinho flutuante
-    const cartBox = document.getElementById("cart");
-    cartBox.classList.add("show");
-
-    // feedback botão
-    const originalText = el.innerText;
-    el.innerText = "✔ Adicionado";
-    el.style.background = "#16a34a";
-
-    setTimeout(() => {
-        el.innerText = originalText;
-        el.style.background = "#c2410c";
-    }, 1200);
 }
 
 function renderCart() {
