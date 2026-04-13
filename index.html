@@ -383,18 +383,6 @@ function sendWhats() {
         mensagem += `- ${item.nome} x${item.qtd}%0A`;
     });
 
-    const dependente = document.getElementById("dependente").value;
-const idade = document.getElementById("idadeDependente").value;
-
-    if (dependente !== "" && idade === "") {
-    alert("Informe a idade do dependente!");
-    return;
-}
-
-if (dependente !== "") {
-    mensagem += `%0A${dependente} - Idade: ${idade}`;
-}
-
     let total = cart.reduce((sum, item) => sum + item.preco * item.qtd, 0);
 
     mensagem += `%0ATotal: R$ ${total.toFixed(2)}`;
@@ -411,8 +399,6 @@ function toggleProteinas() {
     } else {
         div.style.display = "none";
     }
-}
-    
 }
 </script>
 
