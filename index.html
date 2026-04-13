@@ -170,6 +170,19 @@ footer {
     box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
     z-index: 9999; /* 👈 ISSO RESOLVE */
 }
+    .cart-float {
+    position: fixed;
+    bottom: 160px; /* acima do WhatsApp */
+    right: 20px;
+    background: #c2410c;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 22px;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    z-index: 9999;
+}
 </style>
 
 </head>
@@ -289,8 +302,8 @@ footer {
 </footer>
 
 <a class="whatsapp" href="https://wa.me/5521980762316">💬</a>
-
-<div class="cart">
+<a class="cart-float" href="#carrinho">🛒</a>
+<div class="cart" id="carrinho">
 <h3>🛒 Seu pedido</h3>
 <div class="cart-items" id="cartItems"></div>
 <p id="total"></p>
