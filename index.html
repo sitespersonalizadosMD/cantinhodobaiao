@@ -322,23 +322,6 @@ footer {
 <option value="Alelo">Alelo</option>
 </select>
 </div>
-
-    <div style="margin-top:10px;">
-<label><strong>Adicionar dependente:</strong></label><br>
-
-<select id="dependente" onchange="mostrarIdade()" style="width:100%; padding:8px; border-radius:8px; margin-top:5px;">
-<option value="">Selecione</option>
-<option value="Filho">Filho</option>
-<option value="Cônjuge">Cônjuge</option>
-<option value="Pai/Mãe">Pai/Mãe</option>
-</select>
-</div>
-
-<div id="idadeBox" style="display:none; margin-top:10px;">
-<label><strong>Idade do dependente:</strong></label>
-<input type="number" id="idadeDependente" placeholder="Digite a idade"
-style="width:100%; padding:8px; border-radius:8px; margin-top:5px;">
-</div>
     
 <button onclick="sendWhats()">Finalizar no WhatsApp</button>
 </div>
@@ -429,15 +412,7 @@ function toggleProteinas() {
         div.style.display = "none";
     }
 }
-    function mostrarIdade() {
-    const dependente = document.getElementById("dependente").value;
-    const box = document.getElementById("idadeBox");
-
-    if (dependente !== "") {
-        box.style.display = "block";
-    } else {
-        box.style.display = "none";
-    }
+    
 }
 </script>
 
