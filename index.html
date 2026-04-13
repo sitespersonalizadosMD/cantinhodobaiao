@@ -170,6 +170,34 @@ footer {
     box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
     z-index: 9999; /* 👈 ISSO RESOLVE */
 }
+
+    .cart-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    background: #fff3d6;
+    border-top: 3px solid #c2410c;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    border-radius: 12px;
+
+    transform: translateY(120%);
+    opacity: 0;
+    transition: 0.3s ease;
+    z-index: 9999;
+}
+
+.cart-popup.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.cart-items {
+    max-height: 120px;
+    overflow-y: auto;
+    font-size: 14px;
+}
 </style>
 
 </head>
@@ -290,7 +318,7 @@ footer {
 
 <a class="whatsapp" href="https://wa.me/5521980762316">💬</a>
 
-<div class="cart">
+<div class="cart-popup" id="cart">
 <h3>🛒 Seu pedido</h3>
 <div class="cart-items" id="cartItems"></div>
 <p id="total"></p>
@@ -324,7 +352,11 @@ function addItem(nome, preco, el) {
 
     renderCart();
 
-    // 🔥 Feedback visual no botão
+    // mostra carrinho flutuante
+    const cartBox = document.getElementById("cart");
+    cartBox.classList.add("show");
+
+    // feedback botão
     const originalText = el.innerText;
     el.innerText = "✔ Adicionado";
     el.style.background = "#16a34a";
@@ -332,7 +364,7 @@ function addItem(nome, preco, el) {
     setTimeout(() => {
         el.innerText = originalText;
         el.style.background = "#c2410c";
-    }, 1500);
+    }, 1200);
 }
 
 function renderCart() {
