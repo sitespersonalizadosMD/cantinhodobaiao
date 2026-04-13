@@ -403,6 +403,11 @@ function sendWhats() {
     const dependente = document.getElementById("dependente").value;
 const idade = document.getElementById("idadeDependente").value;
 
+    if (dependente !== "" && idade === "") {
+    alert("Informe a idade do dependente!");
+    return;
+}
+
 if (dependente !== "") {
     mensagem += `%0A${dependente} - Idade: ${idade}`;
 }
