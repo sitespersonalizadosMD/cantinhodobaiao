@@ -1,614 +1,406 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cantinho do Baião</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: #f5e6c8;
+    color: #3b2f2f;
 }
 
-html{
-    scroll-behavior:smooth;
+/* HEADER */
+header {
+    background: none;
+    padding: 0;
 }
 
-body{
-    background:#f6efe3;
-    font-family:'Poppins', sans-serif;
-    color:#3e2b1f;
+header h1 {
+    font-size: 40px;
+    text-shadow: 2px 2px 5px black;
 }
 
-/* TOPO */
-
-.header{
-    text-align:center;
-    padding:30px 20px;
-    background:#f6efe3;
+header p {
+    font-size: 18px;
 }
 
-.header img{
-    width:100%;
-    max-width:450px;
-    border-radius:20px;
-    margin-bottom:20px;
-}
-
-.logo-title{
-    font-family:'Anton', sans-serif;
-    font-size:60px;
-    line-height:60px;
-    color:#4b2413;
-    letter-spacing:2px;
-}
-
-.logo-title span{
-    color:#d97706;
-}
-
-.sub{
-    margin-top:10px;
-    font-size:14px;
-    color:#6b4b35;
+/* NOVA FAIXA INFO */
+.info {
+    background: #fff3d6;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    border-bottom: 2px solid #c2410c;
 }
 
 /* CONTAINER */
-
-.container{
-    max-width:800px;
-    margin:auto;
-    padding:20px;
-    padding-bottom:180px;
+.container {
+    padding: 20px;
+    padding-bottom: 220px; /* aumenta pra caber tudo */
 }
 
-/* SEÇÕES */
-
-.section{
-    margin-bottom:40px;
+/* CARD */
+.card {
+    background: #fff3d6;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
 
-.section-title{
-    font-family:'Anton', sans-serif;
-    font-size:35px;
-    margin-bottom:20px;
-    color:#4b2413;
-    border-bottom:3px dashed #d97706;
-    padding-bottom:10px;
+.card:hover {
+    transform: scale(1.02);
 }
 
-/* ITEM */
-
-.item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    padding:20px 0;
-    border-bottom:2px dotted #c9a27e;
+/* TITULO */
+.card h2 {
+    margin: 0;
 }
 
-.item-left{
-    flex:1;
+/* PREÇO */
+.price {
+    color: #8b0000;
+    font-weight: bold;
+    font-size: 20px;
 }
 
-.item h2{
-    font-size:28px;
-    font-family:'Anton', sans-serif;
-    margin-bottom:5px;
-    color:#3b2416;
-}
-
-.item p{
-    font-size:14px;
-    color:#6b4b35;
-    line-height:1.5;
-}
-
-.price{
-    font-size:30px;
-    font-family:'Anton', sans-serif;
-    color:#d97706;
-    min-width:120px;
-    text-align:right;
+/* DESCRIÇÃO */
+.desc {
+    font-size: 14px;
+    color: #5c4033;
 }
 
 /* BOTÃO */
-
-.btn{
-    margin-top:12px;
-    display:inline-block;
-    background:#c2410c;
-    color:white;
-    padding:10px 18px;
-    border-radius:10px;
-    text-decoration:none;
-    cursor:pointer;
-    transition:0.3s;
-    font-size:14px;
+.btn {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    background: #c2410c;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.btn:hover{
-    background:#9a3412;
+/* SEÇÃO */
+.section-title {
+    margin: 20px 0 10px;
+    font-size: 22px;
+    border-bottom: 2px solid #c2410c;
 }
 
-/* EXTRAS */
-
-.extra-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
+/* WHATSAPP */
+.whatsapp {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background: #25D366;
+    padding: 15px;
+    border-radius: 50%;
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
 }
 
-.extra-item{
-    background:#fff7ed;
-    border-radius:15px;
-    padding:15px;
-    border:2px solid #f1d3b0;
-}
-
-.extra-item h3{
-    margin-bottom:8px;
-}
-
-.extra-item .price{
-    text-align:left;
-    font-size:22px;
-    margin-bottom:10px;
+/* RODAPÉ */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #c2410c;
+    color: white;
+    z-index: 1;
 }
 
 /* CARRINHO */
-
-.cart{
-    position:fixed;
-    bottom:0;
-    left:0;
-    right:0;
-    background:white;
-    padding:15px;
-    border-top:4px solid #d97706;
-    box-shadow:0 -5px 20px rgba(0,0,0,0.1);
-    z-index:999;
+.cart {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff3d6;
+    border-top: 3px solid #c2410c;
+    padding: 15px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
 }
 
-.cart h3{
-    margin-bottom:10px;
+.cart-items {
+    max-height: 100px;
+    overflow-y: auto;
+    font-size: 14px;
 }
 
-.cart-items{
-    max-height:100px;
-    overflow-y:auto;
-    margin-bottom:10px;
+.cart button {
+    width: 100%;
+    padding: 10px;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
 }
 
-.total{
-    font-weight:bold;
-    margin-bottom:10px;
+/* 🔥 NOVO: ESTILO DAS PROTEÍNAS */
+.proteina-item h3 {
+    font-size: 16px;
+    margin: 0;
 }
 
-.cart select{
-    width:100%;
-    padding:12px;
-    border-radius:10px;
-    border:1px solid #ccc;
-    margin-bottom:10px;
+.proteina-item .price {
+    font-size: 16px;
 }
-
-.cart button{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    background:#25D366;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
+    footer a:hover {
+    text-decoration: underline;
 }
-
-/* WHATS */
-
-.whatsapp{
-    position:fixed;
-    right:20px;
-    bottom:170px;
-    background:#25D366;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:28px;
-    text-decoration:none;
-    color:white;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  
+    .cart {
+    position: relative;
+    margin-top: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff3d6;
+    border-top: 3px solid #c2410c;
+    padding: 15px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+    z-index: 9999; /* 👈 ISSO RESOLVE */
 }
-
-/* FOOTER */
-
-footer{
-    text-align:center;
-    padding:30px 20px;
-    background:#4b2413;
-    color:white;
-    margin-top:40px;
+    .cart-float {
+    position: fixed;
+    bottom: 160px; /* acima do WhatsApp */
+    right: 20px;
+    background: #c2410c;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 22px;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    z-index: 9999;
 }
-
-footer a{
-    color:#ffd166;
-    text-decoration:none;
+    html {
+    scroll-behavior: smooth;
 }
-
-/* RESPONSIVO */
-
-@media(max-width:600px){
-
-    .logo-title{
-        font-size:42px;
-        line-height:42px;
-    }
-
-    .item{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .price{
-        text-align:left;
-    }
-
-    .extra-grid{
-        grid-template-columns:1fr;
-    }
-
-}
-
 </style>
+
 </head>
 
 <body>
 
-<!-- TOPO -->
+<header>
+</header>
+    <img src="logo.png" style="width:100%; max-width:400px; border-radius:12px; display:block; margin:0 auto 15px;">
 
-<div class="header">
-
-<img src="logo.png">
-
-<div class="logo-title">
-CANTINHO<br>
-<span>DO BAIÃO</span>
+<div class="info">
+💳 Pagamento: Crédito, Débito, PIX e Alelo <br>
+🚚 Consultar taxa de entrega <br>
 </div>
-
-<p class="sub">
-💳 Crédito, Débito, PIX, Alelo e Ticket <br>
-🚚 Consulte taxa de entrega
-</p>
-
-</div>
-
-<!-- CONTAINER -->
 
 <div class="container">
 
-<!-- PRATOS -->
+<h2 class="section-title">🍛 Pratos</h2>
 
-<div class="section">
-
-<h1 class="section-title">🍛 PRATOS</h1>
-
-<div class="item">
-
-<div class="item-left">
-<h2>Só Baião</h2>
-
-<p>
-Meio quilo de baião + farofa
-</p>
-
-<a class="btn" onclick="addItem('Só Baião',25,this)">
-Adicionar
-</a>
-
+<div class="card">
+<h2> Só Baião.</h2>
+<p class="price">R$ 25,00</p>
+<p class="desc">Baião de dois com linguiça, bacon, coentro, queijo coalho, farofa e manteiga de garrafa</p>
+<a class="btn" onclick="addItem('Só Baião', 25, this)">Adicionar</a>
 </div>
 
-<div class="price">
-R$ 25
+<div class="card">
+<h2> Baião com Parmegiana</h2>
+<p class="price">R$ 30,00</p>
+<p class="desc"> Baião de dois com linguiça, bacon, coentro, queijo coalho, farofa e manteiga de garrafa, acompanhado de frango à parmegiana.</p>
+<a class="btn" onclick="addItem('Baião com Parmegiana', 30, this)">Adicionar</a>
 </div>
 
+<div class="card">
+<h2> Baião com Linguiça Mineira</h2>
+<p class="price">R$ 32,00</p>
+<p class="desc"> Baião de dois com linguiça, bacon, coentro, queijo coalho, farofa e manteiga de garrafa, acompanhado de linguiça a mineira.</p>
+<a class="btn" onclick="addItem('Baião com Linguiça', 32, this)">Adicionar</a>
 </div>
 
-<div class="item">
-
-<div class="item-left">
-<h2>Baião c/ Parmegiana</h2>
-
-<p>
-Meio quilo de baião + farofa + frango à parmegiana
-</p>
-
-<a class="btn" onclick="addItem('Baião c/ Parmegiana',30,this)">
-Adicionar
-</a>
-
+<div class="card">
+<h2> Baião com Churrasco Misto</h2>
+<p class="price">R$ 35,00</p>
+<p class="desc"> Baião de dois com linguiça, bacon, coentro, queijo coalho, farofa e manteiga de garrafa, acompanhado de churrasco misto.</p>
+<a class="btn" onclick="addItem('Baião com Churrasco', 35, this)">Adicionar</a>
 </div>
 
-<div class="price">
-R$ 30
-</div>
+<h2 class="section-title">🥤 Bebidas</h2>
 
-</div>
-
-<div class="item">
-
-<div class="item-left">
-<h2>Baião c/ Linguiça</h2>
-
-<p>
-Meio quilo de baião + farofa + linguiça mineira
-</p>
-
-<a class="btn" onclick="addItem('Baião c/ Linguiça',32,this)">
-Adicionar
-</a>
-
-</div>
-
-<div class="price">
-R$ 32
-</div>
-
-</div>
-
-<div class="item">
-
-<div class="item-left">
-<h2>Baião c/ Churrasco</h2>
-
-<p>
-Meio quilo de baião + farofa + churrasco misto
-</p>
-
-<a class="btn" onclick="addItem('Baião c/ Churrasco',35,this)">
-Adicionar
-</a>
-
-</div>
-
-<div class="price">
-R$ 35
-</div>
-
-</div>
-
-</div>
-
-<!-- BEBIDAS -->
-
-<div class="section">
-
-<h1 class="section-title">🥤 BEBIDAS</h1>
-
-<div class="item">
-
-<div class="item-left">
+<div class="card">
 <h2>Refrigerante</h2>
-
-<p>
-Coca, Coca Zero ou Guaraná
-</p>
-
-<a class="btn" onclick="addItem('Refrigerante',6,this)">
-Adicionar
-</a>
-
+<p class="price">R$ 6,00</p>
+<p class="desc">Coca, Coca Zero ou Pepsi Black</p>
+<a class="btn" onclick="addItem('Refrigerante', 6, this)">Adicionar</a>
 </div>
 
-<div class="price">
-R$ 6
+<h2 class="section-title">➕ Extras</h2>
+
+<div class="card">
+<h2>Farofa</h2>
+<p class="price">R$ 5,00</p>
+<a class="btn" onclick="addItem('Farofa', 5, this)">Adicionar</a>
 </div>
 
+<div class="card">
+<h2>Vinagrete</h2>
+<p class="price">R$ 6,00</p>
+<a class="btn" onclick="addItem('Vinagrete', 6, this)">Adicionar</a>
 </div>
 
+<div class="card">
+<h2>Queijo Coalho</h2>
+<p class="price">R$ 8,00</p>
+<a class="btn" onclick="addItem('Queijo Coalho', 8, this)">Adicionar</a>
 </div>
 
-<!-- EXTRAS -->
+<div class="card">
+<h2 onclick="toggleProteinas()" style="cursor:pointer;">
+➕ Proteína Extra ▼
+</h2>
 
-<div class="section">
+<div id="proteinas" style="display:none; margin-top:10px;">
 
-<h1 class="section-title">➕ EXTRAS</h1>
-
-<div class="extra-grid">
-
-<div class="extra-item">
-<h3>Farofa</h3>
-<div class="price">R$ 5</div>
-<a class="btn" onclick="addItem('Farofa',5,this)">Adicionar</a>
-</div>
-
-<div class="extra-item">
-<h3>Vinagrete</h3>
-<div class="price">R$ 6</div>
-<a class="btn" onclick="addItem('Vinagrete',6,this)">Adicionar</a>
-</div>
-
-<div class="extra-item">
-<h3>Queijo Coalho</h3>
-<div class="price">R$ 8</div>
-<a class="btn" onclick="addItem('Queijo Coalho',8,this)">Adicionar</a>
-</div>
-
-<div class="extra-item">
-<h3>Linguiça Mineira</h3>
-<div class="price">R$ 9</div>
-<a class="btn" onclick="addItem('Linguiça Mineira',9,this)">Adicionar</a>
-</div>
-
-<div class="extra-item">
+<div class="card proteina-item">
 <h3>Parmegiana</h3>
-<div class="price">R$ 10</div>
-<a class="btn" onclick="addItem('Parmegiana',10,this)">Adicionar</a>
+<p class="price">R$ 10,00</p>
+<a class="btn" onclick="addItem('Parmegiana', 10, this)">Adicionar</a>
 </div>
 
-<div class="extra-item">
+<div class="card proteina-item">
+<h3>Linguiça Mineira</h3>
+<p class="price">R$ 9,00</p>
+<a class="btn" onclick="addItem('Linguiça Mineira', 9, this)">Adicionar</a>
+</div>
+
+<div class="card proteina-item">
 <h3>Churrasco Misto</h3>
-<div class="price">R$ 12</div>
-<a class="btn" onclick="addItem('Churrasco Misto',12,this)">Adicionar</a>
+<p class="price">R$ 12,00</p>
+<a class="btn" onclick="addItem('Churrasco Misto', 12, this)">Adicionar</a>
 </div>
 
 </div>
-
 </div>
 
 </div>
-
-<!-- WHATS -->
-
-<a class="whatsapp" href="https://wa.me/5521980762316">
-💬
-</a>
-
-<!-- CARRINHO -->
-
-<div class="cart">
-
-<h3>🛒 Seu Pedido</h3>
-
-<div class="cart-items" id="cartItems"></div>
-
-<div class="total" id="total">
-Total: R$ 0,00
-</div>
-
-<select id="payment">
-<option value="">Forma de pagamento</option>
-<option>Pix</option>
-<option>Cartão de Crédito</option>
-<option>Cartão de Débito</option>
-<option>Dinheiro</option>
-<option>Alelo</option>
-<option>Ticket</option>
-</select>
-
-<button onclick="sendWhats()">
-Finalizar no WhatsApp
-</button>
-
-</div>
-
-<!-- FOOTER -->
 
 <footer>
+📞 (21) 98076-2316 <br>
+💳 Aceitamos crédito, débito, PIX e Alelo <br><br>
 
-📞 (21) 98076-2316 <br><br>
-
-© 2026 MDR Sites Personalizados —
-<a href="https://www.instagram.com/mdr_sites/" target="_blank">
-Solicite seu site
-</a>
-
+<p style="font-size:12px; color:#fff;">
+  © 2026 MDR Sites Personalizados — 
+  <a href="https://www.instagram.com/mdr_sites?igsh=czBjbTB3MjB2ZWVu&utm_source=qr" target="_blank" style="color:#ffd166; font-weight:bold;">
+    💻 Desenvolvido por Matheus Damica • Solicite seu site
+  </a>
+</p>
 </footer>
 
-<script>
+<a class="whatsapp" href="https://wa.me/5521980762316">💬</a>
+<a class="cart-float" href="#carrinho">🛒</a>
+<div class="cart" id="carrinho">
+<h3>🛒 Seu pedido</h3>
+<div class="cart-items" id="cartItems"></div>
+<p id="total"></p>
 
+<div style="margin-top:10px;">
+<label><strong>Forma de pagamento:</strong></label><br>
+<select id="payment" style="width:100%; padding:8px; border-radius:8px; margin-top:5px;">
+<option value="">Selecione</option>
+<option value="Pix">Pix</option>
+<option value="Cartão de Crédito">Cartão de Crédito</option>
+<option value="Cartão de Débito">Cartão de Débito</option>
+<option value="Dinheiro">Dinheiro</option>
+<option value="Alelo">Alelo</option>
+<option value="Ticket">Ticket</option>
+</select>
+</div>
+    
+<button onclick="sendWhats()">Finalizar no WhatsApp</button>
+</div>
+
+<script>
 let cart = [];
 
-function addItem(nome, preco, el){
-
+function addItem(nome, preco, el) {
     const item = cart.find(i => i.nome === nome);
 
-    if(item){
+    if(item) {
         item.qtd++;
-    }else{
-        cart.push({
-            nome,
-            preco,
-            qtd:1
-        });
+    } else {
+        cart.push({ nome, preco, qtd: 1 });
     }
 
     renderCart();
 
-    const original = el.innerText;
-
+    // 🔥 Feedback visual no botão
+    const originalText = el.innerText;
     el.innerText = "✔ Adicionado";
     el.style.background = "#16a34a";
 
-    setTimeout(()=>{
-        el.innerText = original;
+    setTimeout(() => {
+        el.innerText = originalText;
         el.style.background = "#c2410c";
-    },1500);
-
+    }, 1500);
 }
 
-function renderCart(){
-
+function renderCart() {
     let html = "";
     let total = 0;
 
-    cart.forEach(item=>{
-
+    cart.forEach(item => {
         total += item.preco * item.qtd;
-
-        html += `
-        <div>
-            ${item.nome} x${item.qtd}
-        </div>
-        `;
-
+        html += `<div>${item.nome} x${item.qtd}</div>`;
     });
 
     document.getElementById("cartItems").innerHTML = html;
-
-    document.getElementById("total").innerHTML =
-    `Total: R$ ${total.toFixed(2)}`;
-
+    document.getElementById("total").innerHTML = "<strong>Total: R$ " + total.toFixed(2) + "</strong>";
 }
 
-function sendWhats(){
-
-    if(cart.length === 0){
+function sendWhats() {
+    if(cart.length === 0) {
         alert("Carrinho vazio!");
         return;
     }
 
-    const pagamento =
-    document.getElementById("payment").value;
+    const pagamento = document.getElementById("payment").value;
 
-    if(pagamento === ""){
+    if(pagamento === "") {
         alert("Selecione a forma de pagamento!");
         return;
     }
 
-    let mensagem =
-    "Olá, quero pedir:%0A%0A";
+    let mensagem = "Olá, quero pedir:%0A";
 
-    cart.forEach(item=>{
-
-        mensagem +=
-        `• ${item.nome} x${item.qtd}%0A`;
-
+    cart.forEach(item => {
+        mensagem += `- ${item.nome} x${item.qtd}%0A`;
     });
 
-    const total = cart.reduce((sum,item)=>
-    sum + (item.preco * item.qtd),0);
+    let total = cart.reduce((sum, item) => sum + item.preco * item.qtd, 0);
 
     mensagem += `%0ATotal: R$ ${total.toFixed(2)}`;
-
     mensagem += `%0AForma de pagamento: ${pagamento}`;
 
-    window.open(
-    `https://wa.me/5521980762316?text=${mensagem}`
-    );
-
+    window.open(`https://wa.me/5521980762316?text=${mensagem}`);
 }
 
+function toggleProteinas() {
+    const div = document.getElementById("proteinas");
+
+    if (div.style.display === "none") {
+        div.style.display = "block";
+    } else {
+        div.style.display = "none";
+    }
+}
 </script>
 
 </body>
